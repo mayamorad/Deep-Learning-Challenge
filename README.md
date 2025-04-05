@@ -61,9 +61,3 @@ A **Random Forest Classifier** was also tested and achieved a higher accuracy of
 - Handles categorical variables with less preprocessing  
 - Easier to interpret using feature importance metrics  
 
----
-
-## 📸 Optional Visualizations
-
-> (Include visuals such as training/validation loss plots, confusion matrix, or feature importance charts here, if available.)
-
