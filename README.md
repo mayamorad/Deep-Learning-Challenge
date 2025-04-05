@@ -27,37 +27,41 @@ The purpose of this analysis is to create a machine learning model that predicts
 ### 🏗️ Compiling, Training, and Evaluating the Model
 
 - **Neural Network Architecture**  
-  - Input layer: 80 neurons (matching number of features)  
-  - Hidden layers: 30 and 15 neurons with **ReLU** activation  
+  - Input layer: 100 neurons  
+  - Hidden layers: 30 and 10 neurons with **ReLU** and **sigmoid** activations  
   - Output layer: 1 neuron with **sigmoid** activation  
 
-  This structure was chosen to balance complexity with generalization.
+  This structure was selected to balance complexity and performance, while minimizing overfitting.
 
 - **Model Performance**  
-  The best-performing model reached an accuracy of **72.7%**, falling just short of the 75% target.
+  - **Training Accuracy (Final Epoch)**: 81.15%  
+  - **Test Accuracy**: **79.42%**  
+  - **Test Loss**: 0.4568  
+  The model came close to the 80% target and maintained consistent performance between training and test datasets.
 
 - **Optimization Attempts**  
-  - Removed additional columns: `AFFILIATION`, `SPECIAL_CONSIDERATIONS`, `USE_CASE`, `ORGANIZATION`  
+  - Removed additional non-contributing columns: `AFFILIATION`, `SPECIAL_CONSIDERATIONS`, `USE_CASE`, `ORGANIZATION`  
   - Filtered for common application types and classifications  
-  - Tested alternative activation functions such as `tanh`  
-  - Adjusted layer depth and neuron counts  
-  - Scaled input data and rebalanced class distribution  
+  - Experimented with different activation functions (e.g., `tanh`)  
+  - Adjusted neuron count and network depth  
+  - Tuned learning rate, batch size, and number of epochs  
 
-  Some of these adjustments resulted in lower performance, with accuracy dropping to around **63%** in certain runs.
+  These adjustments helped fine-tune the model to achieve higher generalization accuracy.
 
 ---
 
 ## ✅ Summary and Recommendation
 
-After extensive tuning, the highest accuracy achieved by the deep learning model was **72.7%**. While reasonably accurate, it did not meet the 75% performance goal.
+After multiple iterations, the deep learning model achieved a strong **79.42% accuracy** on unseen test data. This suggests that the model is fairly effective at identifying organizations likely to use funds successfully.
 
 ### 🔁 Alternative Model Suggestion
 
-A **Random Forest Classifier** was also tested and achieved a higher accuracy of **76.6%**, making it a more promising option for this type of dataset.
+A **Random Forest Classifier** previously tested in the project produced an accuracy of approximately **76.6%**, which was slightly lower than the neural network. However, it requires less tuning and can be more interpretable for decision-making.
 
-#### Why Use Random Forest?
-- Better performance with tabular, mixed-type data  
-- More robust to noise and outliers  
-- Handles categorical variables with less preprocessing  
+#### Why Consider Random Forest?
+- Performs well with mixed-type tabular data  
+- Robust to noise and outliers  
 - Easier to interpret using feature importance metrics  
+- Faster to train and less sensitive to parameter tuning  
 
+For quick iteration or deployment in a low-resource environment, Random Forest could be a strong backup.
