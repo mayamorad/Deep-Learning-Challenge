@@ -1,47 +1,69 @@
-# Deep-Learning-Challenge
+# 🧠 Alphabet Soup Charity Funding Prediction  
+## Deep Learning Model Report
 
-Deep Learning Model Report
+---
 
-📌 Overview of the Analysis
+## 📌 Overview of the Analysis
 
 The purpose of this analysis is to create a machine learning model that predicts whether charitable funding provided by Alphabet Soup will be successful. Using a dataset of over 34,000 organizations, we leveraged a deep learning approach to build a binary classifier. The aim was to assist the company in making smarter investment decisions by identifying which applicants are most likely to use funds successfully based on their historical and categorical attributes.
 
-📊 Results
+---
 
-Data Preprocessing
-🔹 What variable(s) are the target(s) for your model?
-The target variable is IS_SUCCESSFUL, which is labeled 1 for organizations that successfully used their funding, and 0 otherwise.
-🔹 What variable(s) are the features for your model?
-All other variables—after dropping irrelevant columns and encoding categorical variables—were used as features to train the model. These included application type, classification, income amount, and more.
-🔹 What variable(s) should be removed from the input data because they are neither targets nor features?
-The EIN and NAME columns were removed because they serve only as identifiers and do not contribute predictive value.
-Compiling, Training, and Evaluating the Model
-🔹 How many neurons, layers, and activation functions did you select for your neural network model, and why?
-The base model consisted of:
-Input layer with 80 neurons (based on number of features)
-Hidden layers with 30 and 15 neurons, using ReLU activation
-Output layer with 1 neuron and sigmoid activation
-This architecture was chosen to balance model complexity and generalization performance.
-🔹 Were you able to achieve the target model performance?
-The goal was to reach at least 75% accuracy. The best-performing neural network model achieved approximately 72.7%, which fell slightly short.
-🔹 What steps did you take in your attempts to increase model performance?
-Several strategies were tested:
-Dropped additional columns that may have added noise (AFFILIATION, SPECIAL_CONSIDERATIONS, etc.)
-Filtered out low-frequency application types and classifications
-Changed activation functions (from relu to tanh)
-Experimented with deeper networks and more neurons
-Scaled and rebalanced the data
-Despite these efforts, further optimization led to decreased performance, with one configuration dropping to 63% accuracy.
-✅ Summary and Recommendation
+## 📊 Results
 
-After testing various neural network configurations, the model achieved a best-case accuracy of 72.7%. While this result indicates that the neural network was able to capture meaningful patterns in the data, it did not meet the performance target of 75%.
+### 🔄 Data Preprocessing
 
-🔁 Alternative Model Suggestion
-Given the nature of the dataset—which includes many categorical variables and a mix of numeric types—a Random Forest Classifier may be more suitable. In testing, a Random Forest model achieved approximately 76.6% accuracy, outperforming the neural network.
+- **Target Variable**  
+  The target variable is `IS_SUCCESSFUL`, which is labeled `1` for organizations that successfully used their funding, and `0` otherwise.
 
-Why Random Forest?
+- **Feature Variables**  
+  All other variables—after dropping irrelevant columns and encoding categorical variables—were used as features to train the model. These included application type, classification, income amount, and more.
 
-Handles categorical variables better with less preprocessing
-More robust to outliers and noise
-Performs well with tabular data
-Easier to interpret through feature importance metrics
+- **Removed Variables**  
+  The `EIN` and `NAME` columns were removed because they serve only as identifiers and do not contribute predictive value.
+
+---
+
+### 🏗️ Compiling, Training, and Evaluating the Model
+
+- **Neural Network Architecture**  
+  - Input layer: 80 neurons (matching number of features)  
+  - Hidden layers: 30 and 15 neurons with **ReLU** activation  
+  - Output layer: 1 neuron with **sigmoid** activation  
+
+  This structure was chosen to balance complexity with generalization.
+
+- **Model Performance**  
+  The best-performing model reached an accuracy of **72.7%**, falling just short of the 75% target.
+
+- **Optimization Attempts**  
+  - Removed additional columns: `AFFILIATION`, `SPECIAL_CONSIDERATIONS`, `USE_CASE`, `ORGANIZATION`  
+  - Filtered for common application types and classifications  
+  - Tested alternative activation functions such as `tanh`  
+  - Adjusted layer depth and neuron counts  
+  - Scaled input data and rebalanced class distribution  
+
+  Some of these adjustments resulted in lower performance, with accuracy dropping to around **63%** in certain runs.
+
+---
+
+## ✅ Summary and Recommendation
+
+After extensive tuning, the highest accuracy achieved by the deep learning model was **72.7%**. While reasonably accurate, it did not meet the 75% performance goal.
+
+### 🔁 Alternative Model Suggestion
+
+A **Random Forest Classifier** was also tested and achieved a higher accuracy of **76.6%**, making it a more promising option for this type of dataset.
+
+#### Why Use Random Forest?
+- Better performance with tabular, mixed-type data  
+- More robust to noise and outliers  
+- Handles categorical variables with less preprocessing  
+- Easier to interpret using feature importance metrics  
+
+---
+
+## 📸 Optional Visualizations
+
+> (Include visuals such as training/validation loss plots, confusion matrix, or feature importance charts here, if available.)
+
